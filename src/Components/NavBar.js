@@ -53,20 +53,6 @@ const Nav = () => {
           </div>
         </div>  
         <div className="flex items-center justify-between w-1/4"> 
-          {/* holding the last position */}
-          {/* <select value="Decimal" className="py-2 text-sm text-gray-7000">
-            <option value="Decimal">Decimal</option>
-            <option value="Test1">Test1</option>
-            <option value="Test2">Test2</option>
-          </select>
-          <select value="English" className="py-2 text-sm text-gray-7000">
-            <option value="English">English</option>
-            <option value="Test1">Test1</option>
-            <option value="Test2">Test2</option>
-          </select>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-10 rounded">
-              Join Now!
-          </button> */}
         </div>
       </nav>
   );

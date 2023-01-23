@@ -3,7 +3,7 @@ import { useLocation, useNavigate  } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import { SIDEBAR, SIDEBAR_TEXT_FIX, SIDEBAR_ICONS } from "../database/data"
 
-
+const {subIcons, mainIcons} = SIDEBAR_ICONS;
 
 function ReactSidebar() {
   const { collapseSidebar } = useProSidebar();
@@ -20,11 +20,11 @@ function ReactSidebar() {
             }}
             style={{ textAlign: "center" }}
           >
-            <h2>{SIDEBAR_ICONS.mainIcons[sport] ? SIDEBAR_ICONS.mainIcons[sport] : ''}{sport.charAt(0).toUpperCase() + sport.slice(1)}</h2>
+            <h2>{mainIcons[sport] ? mainIcons[sport] : ''}{sport.charAt(0).toUpperCase() + sport.slice(1)}</h2>
           </MenuItem>
           {SIDEBAR[sport] && Object.keys(SIDEBAR[sport]).map((leagueZone) => {
             return (
-              <SubMenu key={uuidv4()} icon={(SIDEBAR_ICONS && SIDEBAR_ICONS.icons && SIDEBAR_ICONS.icons[leagueZone]) ?SIDEBAR_ICONS.icons[leagueZone] : ''} label={SIDEBAR_TEXT_FIX[leagueZone]}>
+              <SubMenu key={uuidv4()} icon={(subIcons && subIcons[leagueZone]) ?subIcons[leagueZone] : ''} label={SIDEBAR_TEXT_FIX[leagueZone]}>
                 {(SIDEBAR[sport] && SIDEBAR[sport][leagueZone] && SIDEBAR[sport][leagueZone].map) && SIDEBAR[sport][leagueZone].map((league) =>
                   <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${league}`)}>
                     {SIDEBAR_TEXT_FIX[league] ? SIDEBAR_TEXT_FIX[league] : league}

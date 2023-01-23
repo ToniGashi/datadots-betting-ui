@@ -121,7 +121,7 @@ export const SIDEBAR_TEXT_FIX = {
 }
 
 export const SIDEBAR_ICONS = {
-    icons: {
+    subIcons: {
         popularLeagues:<FontAwesomeIcon icon={faStar}/>,
         world: <FontAwesomeIcon icon={faEarthAmericas}/>,
         europe: <FontAwesomeIcon icon={faEarthEurope}/>,
