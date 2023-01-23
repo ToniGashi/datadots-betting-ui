@@ -17,7 +17,10 @@ const totalMatches = (arr) => {
 // Assume that the first match is the earliest match and everything inside the first array is today, and every array after that are diffrent days
 // The league was specified in the request
 const MainContainer = () => {
-    const [_, operator, sport, league] = useLocation().pathname.split('/'); //1 is the sport type and 2 is the league
+    const location = useLocation().pathname.split('/');
+    const operator = location[1];
+    const sport = location[2];
+    const league = location[3];
     
     return (
         <div className="w-full">

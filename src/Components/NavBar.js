@@ -9,7 +9,8 @@ import {OPERATORS} from "./database/data";
 const Nav = () => {
   const navigate = useNavigate();
   const location = useLocation().pathname.split('/');
-  const [_, operator, sport, league] = location;
+  const operator = location[1];
+  const sport = location[2];
 
   const currentOperatorIndex = OPERATORS.indexOf(operator);
 
@@ -27,9 +28,9 @@ const Nav = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex flex-shrink-0">
-              <button disabled={operator==OPERATORS[0]} className="disabled:opacity-50" onClick={() => changeOperator('left')} ><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronLeft}/></button>
+              <button disabled={operator===OPERATORS[0]} className="disabled:opacity-50" onClick={() => changeOperator('left')} ><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronLeft}/></button>
                 <h1 className="text-black text-left text-xl font-bold">{operator}</h1>
-                <button disabled={operator==OPERATORS[OPERATORS.length-1]} className="disabled:opacity-50" onClick={() => changeOperator('right')}><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronRight}/></button>
+                <button disabled={operator===OPERATORS[OPERATORS.length-1]} className="disabled:opacity-50" onClick={() => changeOperator('right')}><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronRight}/></button>
               </div>
             </div>
           </div>  

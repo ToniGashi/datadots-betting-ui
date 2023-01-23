@@ -1,6 +1,6 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faEarthAmericas, faEarthEurope, faMagnifyingGlass, faPaperPlane, faFutbol, faBasketball, faMitten, faTableTennisPaddleBall } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faEarthAmericas, faEarthEurope, faMagnifyingGlass, faPaperPlane, faFutbol, faBasketball } from '@fortawesome/free-solid-svg-icons'
 const WEEKDAY = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 export const OPERATORS = ['operator1', 'Noizy', 'MASTERBET', 'TONIBET', 'TOSINO'];

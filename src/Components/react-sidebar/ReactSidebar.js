@@ -8,7 +8,9 @@ const {subIcons, mainIcons} = SIDEBAR_ICONS;
 function ReactSidebar() {
   const { collapseSidebar } = useProSidebar();
   const navigate = useNavigate();
-  const [_, operator, sport, league] = useLocation().pathname.split('/');
+  const location = useLocation().pathname.split('/');
+  const operator = location[1];
+  const sport = location[2];
 
   return (
     <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
