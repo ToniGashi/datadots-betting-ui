@@ -20,11 +20,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "homepage": "https://ToniGashi.github.io",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "docker-compose -f docker-compose.yml build",
+    "prod": "docker-compose -f docker-compose.yml build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,7 +44,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0",
     "tailwindcss": "^3.2.4"
   }
 }
