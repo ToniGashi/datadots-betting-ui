@@ -1,11 +1,9 @@
 import { Sidebar, Menu, MenuItem, useProSidebar, SubMenu } from "react-pro-sidebar";
 import { useLocation, useNavigate  } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
-import { SIDEBAR, SIDEBAR_TEXT_FIX, SIDEBAR_ICONS } from "../database/data"
+import { SIDEBAR_TEXT_FIX, countryLogoDictionary } from "../database/data"
 
-const {subIcons, mainIcons} = SIDEBAR_ICONS;
-
-function ReactSidebar() {
+const ReactSidebar = ({SIDEBAR}) => {
   const { collapseSidebar } = useProSidebar();
   const navigate = useNavigate();
   const location = useLocation().pathname.split('/');
@@ -21,14 +19,14 @@ function ReactSidebar() {
               collapseSidebar();
             }}
             style={{ textAlign: "center" }}
-          >
-            <h2>{mainIcons[sport] ? mainIcons[sport] : ''}{sport.charAt(0).toUpperCase() + sport.slice(1)}</h2>
+          > 
+            <h2>{sport.charAt(0).toUpperCase() + sport.slice(1).replace('%20', ' ')}</h2>
           </MenuItem>
-          {SIDEBAR[sport] && Object.keys(SIDEBAR[sport]).map((leagueZone) => {
+          {SIDEBAR[operator][sport] && Object.keys(SIDEBAR[operator][sport]).map((country) => {
             return (
-              <SubMenu key={uuidv4()} icon={(subIcons && subIcons[leagueZone]) ?subIcons[leagueZone] : ''} label={SIDEBAR_TEXT_FIX[leagueZone]}>
-                {(SIDEBAR[sport] && SIDEBAR[sport][leagueZone] && SIDEBAR[sport][leagueZone].map) && SIDEBAR[sport][leagueZone].map((league) =>
-                  <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${league}`)}>
+              <SubMenu key={uuidv4()} label={SIDEBAR_TEXT_FIX[country]?SIDEBAR_TEXT_FIX[country]: country } icon={<img src={`/flags/${countryLogoDictionary[country]}.svg`} width="20" height="20" alt='flag'/>}>
+                  {(SIDEBAR[operator][sport][country] && SIDEBAR[operator][sport][country] && SIDEBAR[operator][sport][country].map) && SIDEBAR[operator][sport][country].map((league) =>
+                  <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${country}/${league}`)}>
                     {SIDEBAR_TEXT_FIX[league] ? SIDEBAR_TEXT_FIX[league] : league}
                   </MenuItem>
                 )}
