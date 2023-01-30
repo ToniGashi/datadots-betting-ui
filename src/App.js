@@ -8,7 +8,6 @@ function App() {
   const [sideBarData, setSidebarData] = useState({});
   const [operatorData, setOperatorData] = useState([]);
   const [destinationPath, setDestinationPath] = useState(undefined);
-
   useEffect(() => {
     getOperatorData();
     getSideBarData();
