@@ -18,7 +18,8 @@ const MainContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        setTimeout(() => {getLeague();setLoading(false);}, 300);
+        getLeague();
+        setLoading(false);
     }, [operator, sport, country, league])
 
     const getLeague = async() => {
