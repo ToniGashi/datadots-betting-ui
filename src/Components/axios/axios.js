@@ -1,7 +1,7 @@
 import axiosLib from 'axios';
 
 const axios = axiosLib.create({
-  baseURL: process.env.REACT_APP_DOMAIN,
+  baseURL: 'http://localhost:8081',
   withCredentials: true
 });
 

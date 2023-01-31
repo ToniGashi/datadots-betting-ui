@@ -3,11 +3,13 @@ import React, {useState, useEffect} from 'react';
 import {Navigate, Route, Routes } from 'react-router-dom'
 import { getSidebar, getOperators } from './Components/database/data';
 import Home from './Components/Home';
+// import { io } from "socket.io-client";
 
 function App() {
   const [sideBarData, setSidebarData] = useState({});
-  const [operatorData, setOperatorData] = useState([]);
+  const [operatorData, setOperatorData] = useState([]); // can be taken from Object.keys(sideBarData)
   const [destinationPath, setDestinationPath] = useState(undefined);
+
   useEffect(() => {
     getOperatorData();
     getSideBarData();

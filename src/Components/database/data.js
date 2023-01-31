@@ -12,11 +12,6 @@ export const getSidebar = async() => {
     return resp.data;
 }
 
-export const getLeagueData = async (operator, sport, country, league) => {
-    const resp = await axios.get(`marketlines/${operator}/${sport}/${country}/${league}`)
-    return resp.data;
-}
-
 export const countryLogoDictionary = {
     'USA' : 'US',
     'England' : 'GB',

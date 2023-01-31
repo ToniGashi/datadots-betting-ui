@@ -26,7 +26,7 @@ const ReactSidebar = ({SIDEBAR}) => {
             return (
               <SubMenu key={uuidv4()} label={SIDEBAR_TEXT_FIX[country]?SIDEBAR_TEXT_FIX[country]: country } icon={<img src={`/flags/${countryLogoDictionary[country]}.svg`} width="20" height="20" alt='flag'/>}>
                   {(SIDEBAR[operator][sport][country] && SIDEBAR[operator][sport][country] && SIDEBAR[operator][sport][country].map) && SIDEBAR[operator][sport][country].map((league) =>
-                  <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${country}/${league}`)}>
+                  <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${country}/${league}`)} icon={<img src={`/logos/${league.replace(' ', '').toLowerCase()}.png`} width="20" height="20" alt='flag'/>}>
                     {SIDEBAR_TEXT_FIX[league] ? SIDEBAR_TEXT_FIX[league] : league}
                   </MenuItem>
                 )}
