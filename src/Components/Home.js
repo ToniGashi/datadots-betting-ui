@@ -17,28 +17,28 @@ const Home = ({sideBarData, operatorData}) => {
   // const [dd, mm, yy, dow] = dayInfo(daysFromToday)
 
   useEffect(() => {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!useeffect 1')
-      const s = io(process.env.REACT_APP_SOCKET_URL);
-      setSocket(s);
-      s.connect();
-      return () => s.disconnect();
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!useeffect 1')
+    const s = io(process.env.REACT_APP_SOCKET_URL);
+    setSocket(s);
+    s.connect();
+    return () => s.disconnect();
   }, [])
 
   useEffect(() => {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!useeffect 2')
-      if(socket) {
-          socket.on('infoUpdate', async (message) => {
-            setLeagueData({leagueData, ...message});
-            setLoading(false);
-          })
-          socket.on('disconnected', async (message) => {
-            if(socket) {
-                socket.disconnect();
-            }
-          })
-          setLoading(true);
-          socket.emit('switchScreens', {operator:operator, sport:sport, country:country, league:league});
-      }
+    if(socket) {
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!useeffect 2')
+        socket.on('infoUpdate', async (message) => {
+        setLeagueData({leagueData, ...message});
+        setLoading(false);
+        })
+        socket.on('disconnected', async (message) => {
+        if(socket) {
+            socket.disconnect();
+        }
+        })
+        setLoading(true);
+        socket.emit('switchScreens', {operator:operator, sport:sport, country:country, league:league});
+    }
   }, [operator, sport, country, league, socket])
   
   return (
