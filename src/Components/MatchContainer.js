@@ -9,12 +9,12 @@ const MatchContainer = ({match, name, sport}) => {
     });
     const [home, away] = name.split(' vs ')
     return (
-        <div className="flex justify-between mr-8" key={uuidv4()}>
+        <div className="flex justify-left" key={uuidv4()}>
             {(home && away) && <div className="mx-8 mt-8 content-center self-center">
                 {/* <div className="flex text-[#9ca3af]">
-                    <p className="">{matchInfo.time}</p>
+                    <p className="">{match.datetime}</p>
                 </div> */}
-                <div className='flex mb-5'>
+                <div className='flex mb-5 w-80'>
                     <img src={`/logos/${home.replace(' ', '').toLowerCase()}.png`} width="30" height="20" className='mr-2 h-10 w-10 self-center' alt='flag' 
                         onError={({currentTarget}) => {
                             currentTarget.onerror = null; 

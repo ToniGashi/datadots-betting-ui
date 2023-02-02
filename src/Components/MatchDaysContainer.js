@@ -1,16 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { v4 as uuidv4 } from 'uuid';
 import MatchContainer from './MatchContainer';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faClock } from '@fortawesome/free-solid-svg-icons'
-// import { dayInfo } from "./database/data";
-// import { Circles } from  'react-loader-spinner'
-// (loading ? 
-// <Circles
-//     height="80"
-//     width="80" /> :
-// <div>
-
 const MatchDaysContainer = ({operator, sport, country, league, leagueData}) => {
     const leagueDataKeys = Object.keys(leagueData);
     return (
@@ -24,7 +14,7 @@ const MatchDaysContainer = ({operator, sport, country, league, leagueData}) => {
                     {leagueDataKeys.length === 0 ? 'No matches this day' : leagueDataKeys.map(
                         (key) => (
                             <div key={uuidv4()} className="mb-10">
-                                <MatchContainer match={leagueData[key]} name={key} sport={sport}/>
+                                <MatchContainer match={leagueData[key]} datetime={leagueData[key]} name={key} sport={sport}/>
                             </div>
                         )
                     )}

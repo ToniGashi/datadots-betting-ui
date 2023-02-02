@@ -33,7 +33,6 @@ function App() {
         setLoading(false);
       })
       socket.on('sidebar', (message) =>{
-        console.log(message)
         setSidebarData(message); //
         setLoading(false);
       })
