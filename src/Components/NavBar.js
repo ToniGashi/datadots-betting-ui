@@ -49,7 +49,7 @@ const Nav = ({NAVBAR, OPERATORS}) => {
           <div className="ml-10 flex items-baseline space-x-4">
             {listOfSports.map((sport, i) => (
               <div key={i}>
-                <Link to={getLink(sport)} className={`flex pr-2 ${sport===currentSport?'text-teal-500':''}`}><img src={`/logos/${sport.replace(' ', '').toLowerCase()}.png`} width="30" height="20" className='mr-2' alt='flag'/>
+                <Link to={getLink(sport)} className={`flex pr-2 ${sport===currentSport?'text-teal-500':''}`}><img src={`/logos/${sport.replace(' ', '').toLowerCase()}.jpg`} width="30" height="20" className='mr-2' alt='flag'/>
                   <h1 className=" self-center">{sport}</h1>
                 </Link>
               </div>
@@ -57,11 +57,11 @@ const Nav = ({NAVBAR, OPERATORS}) => {
           </div>
         </div>  
         <div className="flex items-center justify-between w-1/4"> 
-              <div className="flex self-end">
-                <p className="">Powered By:</p>  
-                <img className="ml-2 mb-6 mr-5 h-5" src="/logos/diffusion.jpg" alt='Diffusion' width='90' height='40'></img> 
-                <h1>Designed by:</h1>
-                <img className="mb-4 h-8" src="/logos/datadots.png" alt='Datadots' width='120' height='30'></img>
+              <div className="flex self-center">
+                <p className="mt-2">Powered By:</p>  
+                <img className="ml-2 mt-1.5 mr-5 h-5" src="/logos/diffusion.jpg" alt='Diffusion' width='90' height='40'></img> 
+                <h1 className="mt-2">Designed by:</h1>
+                <img className="ml-2 h-10" src="/logos/datadots.jpg" alt='Datadots' width='80'></img>
               </div>
         </div> 
       </nav>

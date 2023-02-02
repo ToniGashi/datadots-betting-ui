@@ -15,18 +15,18 @@ const MatchContainer = ({match, name, sport}) => {
                     <p className="">{match.datetime}</p>
                 </div> */}
                 <div className='flex mb-5 w-60'> {/*Lower this to bring coeficients closer */}
-                    <img src={`/logos/${home.replace(' ', '').toLowerCase()}.png`} width="30" height="20" className='mr-2 h-10 w-10 self-center' alt='flag' 
+                    <img src={`/logos/${home.replace(' ', '').toLowerCase()}.jpg`} width="30" height="20" className='mr-2 h-10 w-10 self-center' alt='flag' 
                         onError={({currentTarget}) => {
                             currentTarget.onerror = null; 
-                            currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.png`
+                            currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.jpg`
                         }} />
                     <h1 className='self-center'>{home}</h1>
                 </div>
                 <div className='flex mb-5 w-60'>
-                    <img src={`/logos/${away.replace(' ', '').toLowerCase()}.png`} width="30" height="20" className='mr-2 h-10 w-10 self-center' alt='flag'
+                    <img src={`/logos/${away.replace(' ', '').toLowerCase()}.jpg`} width="30" height="20" className='mr-2 h-10 w-10 self-center' alt='flag'
                         onError={({currentTarget}) => {
                             currentTarget.onerror = null; 
-                            currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.png`
+                            currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.jpg`
                             }}/>
                     <h1 className='self-center'>{away}</h1>
                 </div>

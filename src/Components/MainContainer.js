@@ -15,10 +15,10 @@ const MainContainer = ({operator, sport, country, league, leagueData}) => {
             <div>
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
-                        <img src={`/logos/${sport.replace(' ', '').toLowerCase()}.png`} className="my-4 mx-4" width="50" height="20" alt='flag' 
+                        <img src={`/logos/${sport.replace(' ', '').toLowerCase()}.jpg`} className="my-4 mx-4" width="50" height="20" alt='flag' 
                             onError={({currentTarget}) => {
                                 currentTarget.onerror = null; 
-                                currentTarget.src=`/logos/${sport}.png`
+                                currentTarget.src=`/logos/${sport}.jpg`
                             }}
                         />
                         <h1 className="text-2xl font-bold text-gray-900 ml-2">
