@@ -9,7 +9,7 @@ const MainContainer = ({operator, sport, country, league, leagueData}) => {
     const NUMBER_OF_DAYS = 7;
 
     return (
-        <div className="w-full">
+        <div className="w-screen">
             {leagueDatalength === 0 ? <h1 className="text-2xl text-center font-bold text-gray-900 ml-2">No data found for {SIDEBAR_TEXT_FIX[league] ? SIDEBAR_TEXT_FIX[league] : league} for the next 7 days</h1> 
             : 
             <div>

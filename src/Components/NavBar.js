@@ -58,7 +58,7 @@ const Nav = ({NAVBAR, OPERATORS}) => {
         </div>  
         <div className="flex items-center justify-between w-1/4"> 
               <div className="flex self-end">
-                <h1>Powered By:</h1>  
+                <p className="">Powered By:</p>  
                 <img className="ml-2 mb-6 mr-5 h-5" src="/logos/diffusion.jpg" alt='Diffusion' width='90' height='40'></img> 
                 <h1>Designed by:</h1>
                 <img className="mb-4 h-8" src="/logos/datadots.png" alt='Datadots' width='120' height='30'></img>
