@@ -4,11 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { SIDEBAR_TEXT_FIX, countryLogoDictionary } from "../database/data"
 
 const ReactSidebar = ({SIDEBAR}) => {
+  console.log("ReactSidebar: ", SIDEBAR)
   const { collapseSidebar } = useProSidebar();
   const navigate = useNavigate();
   const location = useLocation().pathname.split('/');
   const operator = location[1];
-  const sport = location[2];
+  const sport = location[2].replace('%20', ' ');
 
   return (
     <div id="app" style={({ height: "100vh" }, { display: "flex" })}>
@@ -20,13 +21,30 @@ const ReactSidebar = ({SIDEBAR}) => {
             }}
             style={{ textAlign: "center" }}
           > 
-            <h2>{sport.charAt(0).toUpperCase() + sport.slice(1).replace('%20', ' ')}</h2>
+            <div className="flex justify-center">
+              <img src={`/logos/${sport.replace(' ', '').toLowerCase()}.png`} width="30" height="20" className='mr-2' alt='flag' 
+                    onError={({currentTarget}) => {
+                      currentTarget.onerror = null; 
+                      console.log(`/logos/${sport.replace(' ', '').toLowerCase()}.png`);
+                      currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.png`
+                    }}/>
+              <h1 className=" self-center">{sport.charAt(0).toUpperCase() + sport.slice(1).replace('%20', ' ')}</h1>
+            </div>
           </MenuItem>
+            {console.log([SIDEBAR, SIDEBAR[operator], SIDEBAR[operator][sport], sport])}
           {SIDEBAR[operator][sport] && Object.keys(SIDEBAR[operator][sport]).map((country) => {
             return (
-              <SubMenu key={uuidv4()} label={SIDEBAR_TEXT_FIX[country]?SIDEBAR_TEXT_FIX[country]: country } icon={<img src={`/flags/${countryLogoDictionary[country]}.svg`} width="20" height="20" alt='flag'/>}>
+              <SubMenu key={uuidv4()} label={SIDEBAR_TEXT_FIX[country]?SIDEBAR_TEXT_FIX[country]: country } icon={<img src={`/flags/${countryLogoDictionary[country]}.svg`} width="20" height="20" alt='flag' onError={({currentTarget}) => {currentTarget.onerror = null; currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.png`}}/>}>
                   {(SIDEBAR[operator][sport][country] && SIDEBAR[operator][sport][country] && SIDEBAR[operator][sport][country].map) && SIDEBAR[operator][sport][country].map((league) =>
-                  <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${country}/${league}`)} icon={<img src={`/logos/${league.replace(' ', '').toLowerCase()}.png`} width="20" height="20" alt='flag'/>}>
+                  <MenuItem key={uuidv4()} onClick={() => navigate(`/${operator}/${sport}/${country}/${league}`)} 
+                  icon={
+                    <img src={`/logos/${league.replace(' ', '').toLowerCase()}.png`} width="20" height="20" alt='flag' 
+                    onError={({currentTarget}) => {
+                      currentTarget.onerror = null; 
+                      console.log(`/logos/${sport.replace(' ', '').toLowerCase()}.png`);
+                      currentTarget.src=`/logos/${sport.replace(' ', '').toLowerCase()}.png`
+                    }}/>
+                  }>
                     {SIDEBAR_TEXT_FIX[league] ? SIDEBAR_TEXT_FIX[league] : league}
                   </MenuItem>
                 )}

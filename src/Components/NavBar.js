@@ -48,16 +48,20 @@ const Nav = ({NAVBAR, OPERATORS}) => {
         <div className="hidden md:block justify-center self-center">
           <div className="ml-10 flex items-baseline space-x-4">
             {listOfSports.map((sport, i) => (
-              <p key={i}>
-                <Link to={getLink(sport)} className={`pr-2 ${sport===currentSport?'text-teal-500':''}`}>{sport}</Link>
-              </p>
-            ))}
+              <div key={i}>
+                <Link to={getLink(sport)} className={`flex pr-2 ${sport===currentSport?'text-teal-500':''}`}><img src={`/logos/${sport.replace(' ', '').toLowerCase()}.png`} width="30" height="20" className='mr-2' alt='flag'/>
+                  <h1 className=" self-center">{sport}</h1>
+                </Link>
+              </div>
+            ))} 
           </div>
         </div>  
         <div className="flex items-center justify-between w-1/4"> 
-        </div>
+              <h1 className="">Powered by: Diffusion Data. Designed by: Datadots</h1>
+        </div> 
       </nav>
   );
 }
 
 export default Nav;
+
