@@ -20,10 +20,17 @@ const Nav = ({NAVBAR, OPERATORS}) => {
       nextOperator = OPERATORS[currentOperatorIndex+1];
     }
 
-    const firstSportOnOperator = Object.keys(NAVBAR[nextOperator])[0]
-    const firstCountryOnSport = Object.keys(NAVBAR[nextOperator][firstSportOnOperator])[0]
-    const firstLeagueOnCountry = NAVBAR[nextOperator][firstSportOnOperator][firstCountryOnSport][0]
-    return navigate(`/${nextOperator}/${firstSportOnOperator}/${firstCountryOnSport}/${firstLeagueOnCountry}`)
+    if(!NAVBAR[nextOperator]['Football']) {
+      const firstSportOnOperator = Object.keys(NAVBAR[nextOperator])[0]
+      const firstCountryOnSport = Object.keys(NAVBAR[nextOperator][firstSportOnOperator])[0]
+      const firstLeagueOnCountry = NAVBAR[nextOperator][firstSportOnOperator][firstCountryOnSport][0]
+      return navigate(`/${nextOperator}/${firstSportOnOperator}/${firstCountryOnSport}/${firstLeagueOnCountry}`)
+    } else {
+      const firstCountryOnSport = Object.keys(NAVBAR[nextOperator]['Football'])[0]
+      const firstLeagueOnCountry = NAVBAR[nextOperator]['Football'][firstCountryOnSport][0]
+      return navigate(`/${nextOperator}/${'Football'}/${firstCountryOnSport}/${firstLeagueOnCountry}`)
+    }
+    
   }
 
   const getLink = (sport) => {

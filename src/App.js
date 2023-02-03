@@ -53,13 +53,19 @@ function App() {
     }
   }, [league])
 
-  const getNewDestinationPath = () => {
+  const getNewDestinationPath = () => { // When user tries to go to the root path ('/') then we have to redirect them to a more specific destination; '/operator/sport/country/league'
     if(sideBarData && operatorData.length>1){
       const firstOperator = operatorData[0];
-      const firstSportOnOperator = Object.keys(sideBarData[firstOperator])[0]
-      const firstCountryOnSport = Object.keys(sideBarData[firstOperator][firstSportOnOperator])[0]
-      const firstLeagueOnCountry = sideBarData[firstOperator][firstSportOnOperator][firstCountryOnSport][0]
-      setDestinationPath(`/${firstOperator}/${firstSportOnOperator}/${firstCountryOnSport}/${firstLeagueOnCountry}`);
+      if(!sideBarData[firstOperator]['Football'] ) {
+        const firstSportOnOperator = Object.keys(sideBarData[firstOperator])[0]
+        const firstCountryOnSport = Object.keys(sideBarData[firstOperator][firstSportOnOperator])[0]
+        const firstLeagueOnCountry = sideBarData[firstOperator][firstSportOnOperator][firstCountryOnSport][0]
+        setDestinationPath(`/${firstOperator}/${firstSportOnOperator}/${firstCountryOnSport}/${firstLeagueOnCountry}`);
+      } else {
+        const firstCountryOnSport = Object.keys(sideBarData[firstOperator]['Football'])[0]
+        const firstLeagueOnCountry = sideBarData[firstOperator]['Football'][firstCountryOnSport][0]
+        setDestinationPath(`/${firstOperator}/${'Football'}/${firstCountryOnSport}/${firstLeagueOnCountry}`);
+      }
     }
   }
 
