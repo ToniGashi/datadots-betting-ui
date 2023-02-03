@@ -51,7 +51,7 @@ function App() {
     if(socket) {
       socket.emit('switchScreens', {operator:operator, sport:sport, country:country, league:league});
     }
-  }, [league])
+  }, [operator, sport, country, league, socket])
 
   const getNewDestinationPath = () => { // When user tries to go to the root path ('/') then we have to redirect them to a more specific destination; '/operator/sport/country/league'
     if(sideBarData && operatorData.length>1){

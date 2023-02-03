@@ -6,7 +6,7 @@ import { ProSidebarProvider } from 'react-pro-sidebar';
 import { Circles } from "react-loader-spinner";
 import ErrorComponent from "./ErrorComponent.js"
 
-const Home = ({sideBarData, operatorData,leagueData, operator, sport, country, league, loading}) => {
+const Home = ({sideBarData, operatorData, leagueData, operator, sport, country, league, loading}) => {
   // const [dd, mm, yy, dow] = dayInfo(daysFromToday)
   return (
     ((sideBarData && operatorData.length>0) ?

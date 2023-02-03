@@ -47,7 +47,7 @@ const Nav = ({NAVBAR, OPERATORS}) => {
               <div className="flex flex-shrink-0">
               <button disabled={currentOperator===OPERATORS[0]} className="disabled:opacity-50" onClick={() => changeOperator('left')} ><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronLeft}/></button>
                 <h1 className="text-black text-left text-xl font-bold">{currentOperator}</h1>
-                <button disabled={currentOperator===OPERATORS[OPERATORS.length-1]} className="disabled:opacity-50" onClick={() => changeOperator('right')}><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronRight}/></button>
+              <button disabled={currentOperator===OPERATORS[OPERATORS.length-1]} className="disabled:opacity-50" onClick={() => changeOperator('right')}><FontAwesomeIcon className="text-black text-left text-xl font-bold" icon={faChevronRight}/></button>
               </div>
             </div>
           </div>  

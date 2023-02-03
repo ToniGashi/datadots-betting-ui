@@ -9,7 +9,7 @@ const MatchContainer = ({operator, match, name, sport}) => {
     });
     const [home, away] = name.split(' vs ')
     return (
-        <div className="flex justify-left" key={uuidv4()}>
+        <div className="flex justify-left w-fit" key={uuidv4()}>
             {(home && away) && <div className="mx-8 mt-8 content-center self-center">
                 {/* <div className="flex text-[#9ca3af]">
                     <p className="">{match.datetime}</p>
