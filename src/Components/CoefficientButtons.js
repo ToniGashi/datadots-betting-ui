@@ -14,6 +14,7 @@ const CoefficientButtons = ({operator, bets}) => {
         <div className="flex flex-col gap-y-2 ">
             {betKeys.map((bet, i) => {
                 return (
+                    bet !== 'id' &&
                     <div key={uuidv4()} className="flex flex-col flex-col-gap gap-y-2">
                         <button className={  //Operators need to be known beforehand with this implementation
                             operator==='operator1'?`bg-[#C2F9D2] hover:bg-[#8ff7ad] hover:border font-bold text-[#4c4f4f] px-3 py-2 rounded w-60`: 

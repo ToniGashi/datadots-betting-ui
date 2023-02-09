@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CoefficientButtons from "./CoefficientButtons";
 
 const MatchContainer = ({operator, match, name, sport}) => {
+    console.log(match)
     const DESIRED_BETS = ['FT 1X2', 'Under-Over', 'Both Teams To Score', 'Over', 'Odd-Even Goals', 'Double Chance', '2Way', 'Match Odds 2way']
     const matchKeys = DESIRED_BETS.filter(current => {
         if(match[current]) 
@@ -34,7 +35,7 @@ const MatchContainer = ({operator, match, name, sport}) => {
             <div className='flex max-w-screen-xl gap-3 pb-2'>
                 {matchKeys.map(key => (
                     DESIRED_BETS.includes(key) &&
-                    <div key={uuidv4()}>
+                    <div key={match[key].id}>
                         <h1 className="mb-2 text-center font-semibold">{key}</h1>
                         <CoefficientButtons operator={operator} bets={match[key]}/>
                     </div>
