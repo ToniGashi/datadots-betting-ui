@@ -12,9 +12,9 @@ const MatchDaysContainer = ({operator, sport, country, league, leagueData}) => {
             <div>
                 <div>
                     {leagueDataKeys.length === 0 ? 'No matches this day' : leagueDataKeys.map(
-                        (key) => (
-                            <div key={JSON.stringify(leagueData[key])} className="mb-10">
-                                <MatchContainer operator={operator} match={leagueData[key]} datetime={leagueData[key]} name={key} sport={sport}/>
+                        (leagueDataKay) => (
+                            <div key={leagueDataKay}>
+                                <MatchContainer operator={operator} match={leagueData[leagueDataKay]} datetime={leagueData[leagueDataKay]} name={leagueDataKay} sport={sport}/>
                             </div>
                         )
                     )}
